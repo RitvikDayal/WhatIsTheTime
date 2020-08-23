@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!-- META TAG -->
+	<met charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Clock | Javascript</title>
+
+	<!-- STYLE SHEET -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container title">
+		<h1>The two most powerful warriors are patience and time.</h1>
+		<hr>
+	</div>
+
+	<div class="row">
+	<!-- Analog Clock -->
+		<div class="col">
+			<div class="clock">
+				<div class="hour">
+					<div class="hr" id="hr"></div>
+				</div>
+				<div class="min">
+					<div class="mn" id="mn"></div>
+				</div>
+				<div class="sec">
+					<div class="sc" id="sc"></div>
+				</div>
+			</div><!-- end analog-clock -->
+		</div><!-- end col-1 -->
+
+		<!-- Digital Clock -->
+		<div class="col">
+			<div class="digital" id="digital"></div>
+		</div><!-- end col-2 -->
+	</div><!-- end row-1 -->
+
+	<!-- JS for Analog Clock -->
+	<script type="text/javascript">
+		const deg = 6;
+		const digital =  document.getElementById('digital');
+		const hr = document.getElementById('hr');
+		const mn = document.getElementById('mn');
+		const sc = document.getElementById('sc');
+
+		setInterval(() => {
+			let day = new Date();
+			let hh = day.getHours();
+			let mm = day.getMinutes();
+			let ss = day.getSeconds()
+			let time = hh + ":" + mm + ":" + ss;
+			digital.innerText = time;
+			digital.textContent
+
+			hr.style.transform = `rotateZ(${(hh * 30)+((mm * deg)/12)}deg)`;
+			mn.style.transform = `rotateZ(${mm * deg}deg)`;
+			sc.style.transform = `rotateZ(${ss * deg}deg)`;
+		})
+
+	</script>
+</body>
+</html>
